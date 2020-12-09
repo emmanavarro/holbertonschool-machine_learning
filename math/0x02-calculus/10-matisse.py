@@ -10,9 +10,9 @@ def poly_derivative(poly):
         return None
 
     deriv_pol = []
-    for x in range(1, len(poly)):
+    for x in range(len(poly)):
         deriv_pol.append(poly[x] * x)
-    return deriv_pol
+    return deriv_pol[1:]
 
     if sum(deriv_pol) is 0 or deriv_pol is 0:
         return [0]
