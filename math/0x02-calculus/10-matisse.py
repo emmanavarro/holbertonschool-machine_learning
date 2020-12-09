@@ -8,14 +8,15 @@ def poly_derivative(poly):
     """
     if poly == [] or type(poly) is not list or len(poly) is 0:
         return None
+
     for term in poly:
         if not isinstance(term, (int, float)):
             return None
+
+    if len(poly) is 1:
+        return [0]
 
     deriv_pol = []
     for x in range(len(poly)):
         deriv_pol.append(poly[x] * x)
     return deriv_pol[1:]
-
-    if sum(deriv_pol) is 0 or len(poly) is 1:
-        return [0]
