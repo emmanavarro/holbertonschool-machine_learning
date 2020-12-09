@@ -14,5 +14,5 @@ def poly_derivative(poly):
         deriv_pol.append(poly[x] * x)
     return deriv_pol
 
-    if deriv_pol == 0:
+    if sum(deriv_pol) == 0:
         return None
