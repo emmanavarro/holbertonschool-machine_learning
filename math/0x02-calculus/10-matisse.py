@@ -13,3 +13,6 @@ def poly_derivative(poly):
     for x in range(1, len(poly)):
         deriv_pol.append(poly[x] * x)
     return deriv_pol
+
+    if deriv_pol == 0:
+        return None
