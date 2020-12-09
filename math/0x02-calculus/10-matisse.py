@@ -15,4 +15,4 @@ def poly_derivative(poly):
     return deriv_pol
 
     if sum(deriv_pol) == 0:
-        return None
+        return [0]
