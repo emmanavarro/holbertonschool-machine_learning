@@ -25,14 +25,16 @@ y32 = np.exp((r3 / t32) * x3)
 np.random.seed(5)
 student_grades = np.random.normal(68, 15, 50)
 
-#Creating the figure object to contain the five graphics
+# Creating the figure object to contain the five graphics
 fig = plt.figure()
 fig.suptitle('All in One')
 
 # Adding 0-line.py
 fig.add_subplot(321)
 plt.xlim(0, len(y0)-1)
+plt.xticks(range(0, 11, 2))
 plt.plot(range(len(y0)), y0, color='red')
+plt.yticks(range(0, 1001, 500))
 
 # Adding 1-scatter.py
 fig.add_subplot(322)
@@ -74,6 +76,7 @@ plt.hist(student_grades, bins=range(0, 101, 10), edgecolor='black')
 plt.xticks(range(0, 101, 10))
 plt.xlim(0, 100)
 plt.ylim(0, 30)
+plt.yticks(range(0, 31, 10))
 
 fig.tight_layout()
 plt.show()
