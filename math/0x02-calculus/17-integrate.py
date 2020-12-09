@@ -6,10 +6,10 @@ def poly_integral(poly, C=0):
     """
     Calculates the integral of a polynomial
     """
-    if type(poly) != list or len(poly) == 0 or poly == None:
+    if type(poly) != list or len(poly) == 0 or poly is None:
         return None
 
-    if type(C) != int, float or C == None:
+    if type(C) != (int, float) or C is None:
         return None
 
     if poly == [0]:
