@@ -39,3 +39,13 @@ class Normal:
         pdf_val2 = (e ** (-0.5 * ((x - self.mean) / self.stddev) ** 2))
         pdf_val = pdf_val1 * pdf_val2
         return pdf_val
+
+    def cdf(self, x):
+        """ Calculates the value of the CDF for a given x-value """
+        pi = 3.1415926536
+
+        arg = (x - self.mean) / (self.stddev * 2 ** 0.5)
+        erf = (2 / pi ** 0.5) * \
+              (arg - (arg ** 3) / 3 + (arg ** 5) / 10 -
+               (arg ** 7) / 42 + (arg ** 9) / 216)
+        return 0.5 * (1 + erf)
