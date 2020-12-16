@@ -19,3 +19,13 @@ class Normal:
                 raise ValueError("stddev must be a positive value")
             self.mean = float(mean)
             self.stddev = float(stddev)
+
+    def z_score(self, x):
+        """ Calculates the z-score of a given x-value """
+        z_result = (x - self.mean) / self.stddev
+        return z_result
+
+    def x_value(self, z):
+        """ Calculates the x-value of a given z-score """
+        x_result = (self.stddev * z) + self.mean
+        return x_result
