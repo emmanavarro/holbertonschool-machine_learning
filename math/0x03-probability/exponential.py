@@ -9,7 +9,7 @@ class Exponential:
     def __init__(self, data=None, lambtha=1.):
         """ Class contructor """
         if data is not None:
-            if not list:
+            if not isinstance(list):
                 raise TypeError("data must be a list")
             if len(data) <= 2:
                 raise ValueError("data must contain multiple values")
