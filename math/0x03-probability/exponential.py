@@ -16,7 +16,7 @@ class Exponential:
             mean = sum(data) / len(data)
             self.lambtha = 1 / mean
         else:
-            if lambtha < 0:
+            if lambtha <= 0:
                 raise ValueError("lambtha must be a positive value")
             self.lambtha = float(lambtha)
 
