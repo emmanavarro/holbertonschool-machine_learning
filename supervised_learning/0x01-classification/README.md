@@ -12,7 +12,7 @@
   - Sigmoid?
   - Tanh?
   - Relu?
-* Softmax?
+  - Softmax?
 * What is a layer?
 * What is a hidden layer?
 * What is Logistic Regression?
