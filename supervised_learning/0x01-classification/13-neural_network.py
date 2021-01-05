@@ -153,8 +153,9 @@ class NeuralNetwork:
             - A2: is the predicted output
             - alpha: is the learning rate
         """
-        m = A1.shape[1]
+
         dZ2 = A2 - Y
+        m = A1.shape[1]
         dW2 = np.matmul(dZ2, A1.T) / m
         db2 = np.sum(dZ2, axis=1, keepdims=True) / m
 
