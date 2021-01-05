@@ -158,7 +158,9 @@ class NeuralNetwork:
         dW2 = np.matmul(A1, dZ2.T) / m
         db2 = np.sum(dZ2, axis=1, keepdims=True) / m
 
-        dZ1 = np.matmul(self.__W2.T, dZ2) * (A1 * (1 - A1))
+        dZ1a = np.matmul(self.__W2.T, dZ2)
+        dZ1b = (A1 * (1 - A1))
+        dZ1 = dZ1a * dZ1b
         dW1 = np.matmul(X, dZ1.T)
         db1 = np.sum(dZ1, axis=1, keepdims=True) / m
 
