@@ -153,14 +153,13 @@ class NeuralNetwork:
             - A2: is the predicted output
             - alpha: is the learning rate
         """
-
-        dZ2 = A2 - Y
         m = A1.shape[1]
+        dZ2 = A2 - Y
         dW2 = np.matmul(dZ2, A1.T) / m
         db2 = np.sum(dZ2, axis=1, keepdims=True) / m
 
         dZ1 = np.matmul(self.__W2.T, dZ2) * A1 * (1 - A1)
-        dW1 = np.matmul(dZ1, X.T)
+        dW1 = np.matmul(dZ1, X.T) / m
         db1 = np.sum(dZ1, axis=1, keepdims=True) / m
 
         # Update W1 and b1
