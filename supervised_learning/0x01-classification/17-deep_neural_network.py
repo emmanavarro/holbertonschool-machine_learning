@@ -51,17 +51,17 @@ class DeepNeuralNetwork:
             # Zero initialization for biases
             self.__weights["b{}".format(lay + 1)] = np.zeros((layers[lay], 1))
 
-        @property
-        def L(self):
-            """ Getter method for __L """
-            return self.__L
+    @property
+    def L(self):
+        """ Getter method for __L """
+        return self.__L
 
-        @property
-        def cache(self):
-            """ Getter method for __cache """
-            return self.__cache
+    @property
+    def cache(self):
+        """ Getter method for __cache """
+        return self.__cache
 
-        @property
-        def weights(self):
-            """ Getter method for __weights """
-            return self.__weights
+    @property
+    def weights(self):
+        """ Getter method for __weights """
+        return self.__weights
