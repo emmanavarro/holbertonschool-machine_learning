@@ -199,7 +199,7 @@ class DeepNeuralNetwork:
 
         cost_list = []
         step_list = []
-        for i in range(iterations + 1):
+        for i in range(iterations):
             self.forward_prop(X)
             self.gradient_descent(Y, self.cache, alpha)
             cost = self.cost(Y, self.__cache["A{}".format(self.__L)])
