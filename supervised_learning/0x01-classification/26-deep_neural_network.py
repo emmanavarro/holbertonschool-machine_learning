@@ -201,7 +201,7 @@ class DeepNeuralNetwork:
         step_list = []
         for i in range(iterations + 1):
             self.forward_prop(X)
-            self.gradient_descent(Y, self.__cache, alpha)
+            self.gradient_descent(Y, self.cache, alpha)
             cost = self.cost(Y, self.__cache["A{}".format(self.__L)])
             if verbose is True:
                 if (i % step == 0 or step == iterations):
