@@ -226,7 +226,7 @@ class DeepNeuralNetwork:
         Arg:
             - filename: is the file to which the object should be saved.
         """
-        if filename[-4:] is not ".pkl":
+        if filename[-4:] != ".pkl":
             filename = filename + ".pkl"
         with open(filename, 'wb') as file:
             pickle.dump(self, file)
