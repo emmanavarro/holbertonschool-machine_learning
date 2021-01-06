@@ -242,6 +242,7 @@ class DeepNeuralNetwork:
         """
         try:
             with open(filename, 'rb') as f:
-                return pickle.load(f)
+                obj = pickle.load(f)
+                return obj
         except FileNotFoundError:
             return None
