@@ -185,11 +185,11 @@ class DeepNeuralNetwork:
         """
         if not isinstance(iterations, int):
             raise TypeError("iterations must be an integer")
-        if iterations < 0:
+        if iterations <= 0:
             raise ValueError("iterations must be a positive integer")
         if not isinstance(alpha, float):
             raise TypeError("alpha must be a float")
-        if alpha < 0:
+        if alpha <= 0:
             raise ValueError("alpha must be positive")
         if verbose is True or graph is True:
             if not isinstance(step, int):
@@ -243,6 +243,6 @@ class DeepNeuralNetwork:
         try:
             with open(filename, 'rb') as f:
                 obj = pickle.load(f)
-                return obj
+            return obj
         except FileNotFoundError:
             return None
