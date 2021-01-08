@@ -59,8 +59,8 @@ def train(X_train, Y_train, X_valid, Y_valid, layer_sizes, activations, alpha,
     saver = tf.train.Saver()
 
     # Launching the graph and training, saving the model every 100 iterations
-    with tf.Session() as sess:
-        sess.run(init)
+    sess = tf.Session()
+    sess.run(init)
 
     # Using the context manager
     for step in range(iterations + 1):
