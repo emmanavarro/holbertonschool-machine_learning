@@ -59,24 +59,26 @@ def train(X_train, Y_train, X_valid, Y_valid, layer_sizes, activations, alpha,
     saver = tf.train.Saver()
 
     # Launching the graph and training, saving the model every 100 iterations
+    step = 100
+
     with tf.Session() as sess:
         sess.run(init)
 
         # Using the context manager
-        for step in range(iterations + 1):
+        for i in range(iterations + 1):
             t_cost, t_acc = sess.run([loss, accuracy],
                                     feed_dict={x: X_train, y: Y_train})
             v_cost, v_acc = sess.run([loss, accuracy],
                                     feed_dict={x: X_valid, y: Y_valid})
 
-            if step % 100 == 0 or step == iterations:
+            if i % step == 0 or i == iterations:
                 print("After {} iterations".format(step))
                 print("\tTraining Cost: {}".format(t_cost))
                 print("\tTraining Accuracy: {}".format(t_acc))
                 print("\tValidation Cost: {}".format(v_cost))
                 print("\tValidation Accuracy: {}".format(v_acc))
 
-            if step < iterations:
+            if i < iterations:
                 sess.run(train_op, feed_dict={x: X_train, y: Y_train})
 
         return saver.save(sess, save_path)
