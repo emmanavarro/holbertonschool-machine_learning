@@ -67,9 +67,9 @@ def train(X_train, Y_train, X_valid, Y_valid, layer_sizes, activations, alpha,
         # Using the context manager
         for i in range(iterations + 1):
             t_cost, t_acc = sess.run([loss, accuracy],
-                                    feed_dict={x: X_train, y: Y_train})
+                                     feed_dict={x: X_train, y: Y_train})
             v_cost, v_acc = sess.run([loss, accuracy],
-                                    feed_dict={x: X_valid, y: Y_valid})
+                                     feed_dict={x: X_valid, y: Y_valid})
 
             if i % step == 0 or i == iterations:
                 print("After {} iterations".format(step))
