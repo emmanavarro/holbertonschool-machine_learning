@@ -24,3 +24,5 @@ def create_layer(prev, n, activation):
                                     activation=activation,
                                     kernel_initializer=raw_layer,
                                     name='layer')
+
+    return output_tensor(prev)
