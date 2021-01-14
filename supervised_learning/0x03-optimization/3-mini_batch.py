@@ -44,12 +44,11 @@ def train_mini_batch(X_train,
         saver.restore(sess, load_path)
 
         m = X_train.shape[0]
-        steps = m / batch_size
+        steps = m // batch_size
         if steps % batch_size != 0:
-            steps = int(steps) + 1
+            steps = steps + 1
             flag = True
         else:
-            steps = int(steps)
             flag = False
 
         # x is a placeholder for the input data
@@ -94,7 +93,7 @@ def train_mini_batch(X_train,
                     if step_number == steps - 1 and flag:
                         end = X_train.shape[0]
                     else:
-                        end = batch_size * (step_number + batch_size)
+                        end = (batch_size * step_number) + batch_size
 
                     feed_dict_minib = {x: X_shuffled[start:end],
                                        y: Y_shuffled[start:end]}
