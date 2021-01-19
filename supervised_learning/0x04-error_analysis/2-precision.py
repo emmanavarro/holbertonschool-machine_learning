@@ -18,7 +18,7 @@ def precision(confusion):
     A numpy.ndarray of shape (classes,) containing the precision of each class
     """
     true_positive = np.diagonal(confusion)
-    false_positive = np.sum(confusion, axis=0)
-    precision = true_positive / (true_positive + false_positive)
+    all_positive = np.sum(confusion, axis=0)
+    precision = true_positive / all_positive
 
     return precision
