@@ -28,22 +28,19 @@ def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
     weights2 = weights.copy()
     m = Y.shape[1]
 
-    for net_ly in reversed(range(L)):
+    for n in reversed(range(L)):
 
-        n = net_ly + 1
-        if (n == L):
-            dz = cache["A" + str(n)] - Y
-            dw = (np.matmul(cache["A" + str(net_ly)], dz.T) / m).T
+        if n == L - 1:
+            dz = cache["A" + str(n + 1)] - Y
+            dw = (np.matmul(cache["A" + str(n)], dz.T) / m).T
         else:
-            dz1 = np.matmul(weights2["W" + str(n + 1)].T, current_dz)
-            dz2 = 1 - cache["A" + str(n)]**2
+            dz1 = np.matmul(weights2["W" + str(n + 2)].T, dz)
+            dz2 = 1 - cache["A" + str(n + 1)] ** 2
             dz = dz1 * dz2
-            dw = np.matmul(dz, cache["A" + str(net_ly)].T) / m
+            dw = np.matmul(dz, cache["A" + str(n)].T) / m
 
-        dw_reg = dw + (lambtha / m) * weights2["W" + str(n)]
+        dw_reg = dw + (lambtha / m) * weights2["W" + str(n + 1)]
         db = np.sum(dz, axis=1, keepdims=True) / m
 
-        weights["W" + str(n)] -= (alpha * dw_reg)
-        weights["b" + str(n)] -= (alpha * db)
-
-        current_dz = dz
+        weights["W" + str(n + 1)] -= alpha * dw_reg
+        weights["b" + str(n + 1)] -= alpha * db
