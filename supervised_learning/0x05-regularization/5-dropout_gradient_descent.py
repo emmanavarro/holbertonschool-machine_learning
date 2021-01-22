@@ -33,6 +33,6 @@ def dropout_gradient_descent(Y, weights, cache, alpha, keep_prob, L):
             dw = np.matmul(dz, cache["A" + str(neural_lyr)].T) / m
 
         db = np.sum(dz, axis=1, keepdims=True) / m
-        weights["W" + str(n)] -= (alpha * dw)
-        weights["b" + str(n)] -= alpha * db
+        weights["W" + str(n)] = weights["W" + str(n)] - (alpha * dw)
+        weights["b" + str(n)] = weights["b" + str(n)] - alpha * db
         current_dz = dz
