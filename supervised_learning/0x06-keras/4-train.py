@@ -38,4 +38,4 @@ def train_model(network,
                           verbose=verbose,
                           shuffle=shuffle)
 
-    return(History)
+    return History
