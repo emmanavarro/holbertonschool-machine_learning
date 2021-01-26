@@ -32,10 +32,10 @@ def build_model(nx, layers, activations, lambtha, keep_prob):
                                  input_shape=(nx,)))
 
     # creating the subsequent densley-connected layers
-    for i in range(len(layers)):
+    for i in range(1, len(layers)):
         model.add(keras.layers.Dropout(1 - keep_prob))
         model.add(keras.layers.Dense(units=layers[i],
                                      activation=activations[i],
-                                     kernel_regularizer=regularizer,))
+                                     kernel_regularizer=regularizer))
 
     return model
