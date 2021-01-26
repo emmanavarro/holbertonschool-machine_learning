@@ -30,6 +30,7 @@ def train_model(network,
         - shuffle: is a boolean that determines whether to shuffle the batches
           every epoch. Normally, it is a good idea to shuffle, but for
           reproducibility, we have chosen to set the default to False.
+        - validation_data: is the data to validate the model with, if not None
     Returns: the History object generated after training the model
     """
     history = network.fit(x=data,
