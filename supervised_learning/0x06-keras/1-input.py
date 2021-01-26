@@ -27,17 +27,16 @@ def build_model(nx, layers, activations, lambtha, keep_prob):
 
     # Input layer creation
     outputs = keras.layers.Dense(units=layers[0],
-                                     kernel_regularizer=regularizer,
-                                     activation=activations[0],
-                                     input_shape=(nx,))(inputs)
+                                 kernel_regularizer=regularizer,
+                                 activation=activations[0],
+                                 input_shape=(nx,))(inputs)
 
     # Subsequent layer creation
     for i in range(1, len(layers)):
         outputs = keras.layers.Dropout(1 - keep_prob)(outputs)
         outputs = keras.layers.Dense(units=layers[i],
-                                          activation=activations[i],
-                                          kernel_regularizer=regularizer
-                                          )(outputs)
+                                     activation=activations[i],
+                                     kernel_regularizer=regularizer)(outputs)
 
     model = keras.Model(inputs=inputs, outputs=outputs)
 
