@@ -6,7 +6,12 @@ Train a model using mini batch gradient descent
 import tensorflow.keras as keras
 
 
-def train_model(network, data, labels, batch_size, epochs, verbose=True,
+def train_model(network,
+                data,
+                labels,
+                batch_size,
+                epochs,
+                verbose=True,
                 shuffle=False):
     """
     Trains a model using mini-batch gradient descent
@@ -33,4 +38,4 @@ def train_model(network, data, labels, batch_size, epochs, verbose=True,
                           verbose=verbose,
                           shuffle=shuffle)
 
-    return History
+    return(History)
