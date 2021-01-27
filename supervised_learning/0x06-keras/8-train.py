@@ -50,7 +50,7 @@ def train_model(network, data, labels, batch_size, epochs,
         - filepath: is the file path where the model should be saved
     Returns: the History object generated after training the model
     """
-    def learning_rate_decay(epochs):
+    def learning_rate(epochs):
         """
         Updates the learning rate using inverse time decay
         """
@@ -65,8 +65,8 @@ def train_model(network, data, labels, batch_size, epochs,
                                                    mode='min')
         callbacks_list.append(mcp_save)
 
-    if validation_data:
-        lr_decay = keras.callbacks.LearningRateScheduler(learning_rate_decay,
+    if validation_data and learning_rate_decay:
+        lr_decay = keras.callbacks.LearningRateScheduler(learning_rate,
                                                          verbose=1)
         callbacks_list.append(lr_decay)
 
