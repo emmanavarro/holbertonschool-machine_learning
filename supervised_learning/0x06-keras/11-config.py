@@ -20,15 +20,16 @@ def save_config(network, filename):
         f.write(json_model)
     return None
 
-    def load_config(filename):
-        """
-        Loads a model with a specific configuration
-        Args:
-            - filename is the path of the file containing the model’s
-              configuration in JSON format
-        Returns: the loaded model
-        """
-        with open(filename, 'r') as f:
-            network_str = f.read()
-        loaded_model = keras.models.model_from_json(network_str)
-        return loaded_model
+
+def load_config(filename):
+    """
+    Loads a model with a specific configuration
+    Args:
+        - filename is the path of the file containing the model’s
+          configuration in JSON format
+    Returns: the loaded model
+    """
+    with open(filename, 'r') as f:
+        network_str = f.read()
+    loaded_model = keras.models.model_from_json(network_str)
+    return loaded_model
