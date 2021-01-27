@@ -72,6 +72,7 @@ def train_model(network, data, labels, batch_size, epochs,
 
     if early_stopping and validation_data:
         early_stopping = keras.callbacks.EarlyStopping(monitor='val_loss',
+                                                       mode='min',
                                                        patience=patience)
         callbacks_list.append(early_stopping)
 
