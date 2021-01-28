@@ -33,7 +33,7 @@ def convolve_grayscale_valid(images, kernel):
     oh = h - kh + 1
     ow = w - kw + 1
 
-    # Creating the output matrix with shape (oh, ow)
+    # Creating the output matrix with shape (m, oh, ow)
     output = np.zeros((m, oh, ow))
 
     # Loop over every pixel in the output
