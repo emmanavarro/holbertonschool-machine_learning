@@ -35,7 +35,7 @@ def convolve(images, kernels, padding='same', stride=(1, 1)):
     """
     m, h = images.shape[0], images.shape[1]
     w, c = images.shape[2], images.shape[3]
-    kh, kw, nc = kernels.shape[0], kernels.shape[1], kernels.shape[2]
+    kh, kw, nc = kernels.shape[0], kernels.shape[1], kernels.shape[3]
     sh, sw = stride[0], stride[1]
 
     if padding == 'same':
