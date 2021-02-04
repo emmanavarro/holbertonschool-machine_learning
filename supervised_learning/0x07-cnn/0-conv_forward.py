@@ -3,7 +3,6 @@
 Convolutional Forward Propagation
 """
 
-import tensorflow.keras as Keras
 import numpy as np
 
 
